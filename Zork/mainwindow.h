@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QObject>
 #include <QTextStream>
-
+#include "Command.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void parseInput(const string &input);
+    //void parseInput(const string &input);
 
 private slots:
 

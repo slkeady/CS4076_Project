@@ -66,7 +66,7 @@ static const uint qt_meta_data_MainWindow[] = {
        0        // eod
 };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+/*void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<MainWindow *>(_o);
@@ -78,7 +78,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         }
     }
 }
-
+*/
 const QMetaObject MainWindow::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
     qt_meta_stringdata_MainWindow.offsetsAndSize,

@@ -10,17 +10,15 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    vector<Room> rooms;
-    Parser parser;
-
-
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
     return a.exec();
 
-
     ZorkUL temp;
+    vector<Room> rooms;
+    Parser* parser = new Parser();
+
     temp.play();
 
 	return 0;
@@ -85,7 +83,7 @@ void ZorkUL::play() {
 	while (!finished) {
 		// Create pointer to command and give it a command.
         cin >> input;
-        Command* command = parser.getCommand(input);
+        Command* command = parser->getCommand(input);
 		// Pass dereferenced command and check for end of game.
 		finished = processCommand(*command);
 		// Free the memory allocated by "parser.getCommand()"
@@ -185,7 +183,7 @@ bool ZorkUL::processCommand(Command command) {
 /** COMMANDS **/
 void ZorkUL::printHelp() {
 	cout << "valid inputs are; " << endl;
-	parser.showCommands();
+    parser->showCommands();
 
 }
 
@@ -222,18 +220,18 @@ string ZorkUL::go(string direction) {
 	}
 }
 
-string outputCommand(Command command)
+string ZorkUL::outputCommand(Command* command)
 {
-    if (command.isUnknown())
+    if (command->isUnknown())
     {
         return "invalid input";
     }
     else
     {
-        return command.getCommandWord() + " " + command.getSecondWord() + "\n";
+        return command->getCommandWord() + " " + command->getSecondWord() + "\n";
     }
 }
 
-inline Parser* getParser(){
+/*Parser getParser(){
     return ZorkUL::parser;
-}
+}*/
