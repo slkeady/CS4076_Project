@@ -22,7 +22,6 @@ MainWindow::~MainWindow()
 void MainWindow::parseInput(const string &input)
 {
 
-    ui->plainTextEdit->setPlainText("");
 }
 
 
