@@ -263,6 +263,8 @@ release/moc_mainwindow.cpp: ../Zork/mainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/qnativeinterface.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
+		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
+		../Zork/Command.h \
 		release/moc_predefs.h \
 		E:/qt/6.2.3/mingw_64/bin/moc.exe
 	E:\qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/danui/Documents/GitHub/CS4076_Project/build-Zork-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/danui/Documents/GitHub/CS4076_Project/Zork -IE:/qt/6.2.3/mingw_64/include -IE:/qt/6.2.3/mingw_64/include/QtWidgets -IE:/qt/6.2.3/mingw_64/include/QtGui -IE:/qt/6.2.3/mingw_64/include/QtCore -I. -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Zork\mainwindow.h -o release\moc_mainwindow.cpp
@@ -445,6 +447,7 @@ release/ZorkUL.o: ../Zork/ZorkUL.cpp ../Zork/ZorkUL.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/qnativeinterface.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
+		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
@@ -600,35 +603,14 @@ release/mainwindow.o: ../Zork/mainwindow.cpp ../Zork/mainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/qnativeinterface.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
+		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
+		../Zork/Command.h \
 		ui_mainwindow.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/QVariant \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qeventloop.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qfuture.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qfutureinterface.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qmutex.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qresultstore.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qfuture_impl.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qthreadpool.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qthread.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qrunnable.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qexception.h \
-		E:/qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
-		E:/qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		E:/qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
-		E:/qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/QMenuBar \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/qmenubar.h \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/qmenu.h \
-		E:/qt/6.2.3/mingw_64/include/QtGui/qaction.h \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/QStatusBar \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/qstatusbar.h \
-		E:/qt/6.2.3/mingw_64/include/QtWidgets/QWidget
+		../Zork/ZorkUL.h \
+		../Zork/Parser.h \
+		../Zork/CommandWords.h \
+		../Zork/Room.h \
+		../Zork/item.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Zork\mainwindow.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
