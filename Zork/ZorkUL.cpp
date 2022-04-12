@@ -8,11 +8,10 @@ using namespace std;
 #include <QApplication>
 #include <QTextStream>
 
+Parser* parser = new Parser();
+vector<Room> rooms;
+
 int main(int argc, char *argv[]) {
-
-    vector<Room> rooms;
-    Parser parser;
-
 
     QApplication a(argc, argv);
     MainWindow w;
@@ -85,7 +84,7 @@ void ZorkUL::play() {
 	while (!finished) {
 		// Create pointer to command and give it a command.
         cin >> input;
-        Command* command = parser.getCommand(input);
+        Command* command = parser->getCommand(input);
 		// Pass dereferenced command and check for end of game.
 		finished = processCommand(*command);
 		// Free the memory allocated by "parser.getCommand()"
@@ -185,7 +184,7 @@ bool ZorkUL::processCommand(Command command) {
 /** COMMANDS **/
 void ZorkUL::printHelp() {
 	cout << "valid inputs are; " << endl;
-	parser.showCommands();
+    parser->showCommands();
 
 }
 
@@ -234,6 +233,7 @@ string outputCommand(Command command)
     }
 }
 
-inline Parser* getParser(){
-    return ZorkUL::parser;
+inline Parser* getParser()
+{
+    return parser;
 }

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QTextStream>
+#include <sstream>
+#include <QString>
 
 
 QT_BEGIN_NAMESPACE
@@ -21,10 +23,10 @@ public:
     void parseInput(const string &input);
 
 private slots:
-
+    void on_plainTextEdit_blockCountChanged(int newBlockCount);
     void on_westButton_clicked();
 
-    void on_plainTextEdit_blockCountChanged(int newBlockCount);
+    void on_lineEdit_returnPressed();
 
 private:
     Ui::MainWindow *ui;

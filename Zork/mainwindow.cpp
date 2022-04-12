@@ -1,13 +1,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ZorkUL.h"
 #include "Parser.h"
+#include "Command.h"
+#include <sstream>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->lineEdit->setPlaceholderText("Type your commands here");
+    ui->plainTextEdit->setPlainText("Welcome to Zork!");
 }
 
 MainWindow::~MainWindow()
@@ -17,12 +21,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::parseInput(const string &input)
 {
-    Command *command = ZorkUL::getParser()->getCommand(input);
 
-    string inputString = "> " + input + "\n\n";
-
-    string output = ZorkUL::outputCommand(*command);
+    ui->plainTextEdit->setPlainText("");
 }
+
 
 
 void MainWindow::on_plainTextEdit_blockCountChanged(int newBlockCount)
@@ -33,6 +35,14 @@ void MainWindow::on_plainTextEdit_blockCountChanged(int newBlockCount)
 
 void MainWindow::on_westButton_clicked()
 {
-    parseInput("go west");
+
+}
+
+
+void MainWindow::on_lineEdit_returnPressed()
+{
+    string text = ui->lineEdit->text().toStdString();
+    parseInput(text);
+    ui->lineEdit->clear();
 }
 
