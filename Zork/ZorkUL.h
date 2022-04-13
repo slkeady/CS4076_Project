@@ -5,7 +5,6 @@
 #include "Parser.h"
 #include "Room.h"
 #include "item.h"
-#include "mainwindow.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,7 +14,9 @@ using namespace std;
 class ZorkUL {
 private:
     vector<Room> rooms;
-    Parser* parser;
+    Parser *parser;
+    Command* command;
+    bool isParsed;
 	Room *currentRoom;
 	void createRooms();
 	void printWelcome();
@@ -25,13 +26,12 @@ private:
     void createItems();
     void displayItems();
     static string outputCommand(Command command);
-    friend void MainWindow::parseInput(const string &input);
 
 public:
 	ZorkUL();
 	void play();
     string go(string direction);
-    static Parser* getParser();
+    void parseInput(const string &input);
 };
 
 #endif /*ZORKUL_H_*/

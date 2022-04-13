@@ -134,6 +134,12 @@ compiler_moc_header_make_all: debug/moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_mainwindow.cpp
 debug/moc_mainwindow.cpp: ../Zork/mainwindow.h \
+		../Zork/ZorkUL.h \
+		../Zork/Command.h \
+		../Zork/Parser.h \
+		../Zork/CommandWords.h \
+		../Zork/Room.h \
+		../Zork/item.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qmainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -264,7 +270,7 @@ debug/moc_mainwindow.cpp: ../Zork/mainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
-		../Zork/Command.h \
+		E:/qt/6.2.3/mingw_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		E:/qt/6.2.3/mingw_64/bin/moc.exe
 	E:\qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/danui/Documents/GitHub/CS4076_Project/build-Zork-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/danui/Documents/GitHub/CS4076_Project/Zork -IE:/qt/6.2.3/mingw_64/include -IE:/qt/6.2.3/mingw_64/include/QtWidgets -IE:/qt/6.2.3/mingw_64/include/QtGui -IE:/qt/6.2.3/mingw_64/include/QtCore -I. -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Zork\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -448,6 +454,7 @@ debug/ZorkUL.o: ../Zork/ZorkUL.cpp ../Zork/ZorkUL.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
+		E:/qt/6.2.3/mingw_64/include/QtCore/QString \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
@@ -474,6 +481,12 @@ debug/item.o: ../Zork/item.cpp ../Zork/item.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\item.o ..\Zork\item.cpp
 
 debug/mainwindow.o: ../Zork/mainwindow.cpp ../Zork/mainwindow.h \
+		../Zork/ZorkUL.h \
+		../Zork/Command.h \
+		../Zork/Parser.h \
+		../Zork/CommandWords.h \
+		../Zork/Room.h \
+		../Zork/item.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qmainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -604,13 +617,8 @@ debug/mainwindow.o: ../Zork/mainwindow.cpp ../Zork/mainwindow.h \
 		E:/qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		E:/qt/6.2.3/mingw_64/include/QtGui/qicon.h \
 		E:/qt/6.2.3/mingw_64/include/QtCore/QTextStream \
-		../Zork/Command.h \
-		ui_mainwindow.h \
-		../Zork/ZorkUL.h \
-		../Zork/Parser.h \
-		../Zork/CommandWords.h \
-		../Zork/Room.h \
-		../Zork/item.h
+		E:/qt/6.2.3/mingw_64/include/QtCore/QString \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\Zork\mainwindow.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 

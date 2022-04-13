@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "ZorkUL.h"
 #include <QMainWindow>
 #include <QTextStream>
 #include <sstream>
@@ -20,15 +21,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void parseInput(const string &input);
+    //void parseInput(const string &input);
+    ZorkUL* zork;
+    void updateTextBox(string text);
+    ZorkUL* getZork();
 
 private slots:
-    void on_plainTextEdit_blockCountChanged(int newBlockCount);
+    //void on_plainTextEdit_blockCountChanged(int newBlockCount);
     void on_westButton_clicked();
 
     void on_lineEdit_returnPressed();
 
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

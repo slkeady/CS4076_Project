@@ -8,8 +8,11 @@ using namespace std;
 #include <QApplication>
 #include <QTextStream>
 
-Parser* parser = new Parser();
+Parser* parser;
 vector<Room> rooms;
+Command* command;
+bool isParsed = false;
+MainWindow* window;
 
 int main(int argc, char *argv[]) {
 
@@ -17,11 +20,10 @@ int main(int argc, char *argv[]) {
     MainWindow w;
     w.show();
     return a.exec();
+    window = &w;
 
-
-    ZorkUL temp;
-    temp.play();
-
+    window->getZork()->play();
+    parser = new Parser();
 	return 0;
 }
 
@@ -82,24 +84,27 @@ void ZorkUL::play() {
 	bool finished = false;
     string input = "";
 	while (!finished) {
-		// Create pointer to command and give it a command.
-        cin >> input;
-        Command* command = parser->getCommand(input);
-		// Pass dereferenced command and check for end of game.
-		finished = processCommand(*command);
-		// Free the memory allocated by "parser.getCommand()"
-		//   with ("return new Command(...)")
-		delete command;
+        if(isParsed)
+        {
+            // Pass dereferenced command and check for end of game.
+            finished = processCommand(*command);
+            isParsed = false;
+        }
+        // Free the memory allocated by "parser.getCommand()"
+        //   with ("return new Command(...)")
+        command = nullptr;
 	}
-	cout << endl;
-	cout << "end" << endl;
+    window->updateTextBox("\nend\n");
+    //cout << endl;
+    //cout << "end" << endl;
 }
 
 void ZorkUL::printWelcome() {
-	cout << "start"<< endl;
-	cout << "info for help"<< endl;
-	cout << endl;
-	cout << currentRoom->longDescription() << endl;
+    window->updateTextBox("start\ninfo for help\n\n" + currentRoom->longDescription() + "\n");
+    //cout << "start"<< endl;
+    //cout << "info for help"<< endl;
+    //cout << endl;
+    //cout << currentRoom->longDescription() << endl;
 }
 
 /**
@@ -233,7 +238,9 @@ string outputCommand(Command command)
     }
 }
 
-inline Parser* getParser()
+void ZorkUL::parseInput(const string &input)
 {
-    return parser;
+    command = parser->getCommand(input);
+    isParsed = true;
 }
+
