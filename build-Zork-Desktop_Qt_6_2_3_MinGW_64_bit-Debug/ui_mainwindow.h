@@ -11,19 +11,18 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,14 +37,19 @@ public:
     QPushButton *eastButton;
     QPushButton *northButton;
     QPushButton *southButton;
-    QGraphicsView *graphicsView;
+    QTextEdit *textEdit;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents_2;
     QScrollBar *verticalScrollBar;
     QTableWidget *tableWidget;
     QLabel *label;
-    QPlainTextEdit *plainTextEdit;
     QLineEdit *lineEdit;
+    QPushButton *teleportButton;
+    QPushButton *quitButton;
+    QPushButton *takeButton;
+    QPushButton *quitButton_2;
+    QPushButton *infoButton;
+    QPushButton *takeButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -82,36 +86,54 @@ public:
 
         gridLayout->addWidget(southButton, 2, 1, 1, 1);
 
-        graphicsView = new QGraphicsView(gridLayoutWidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        textEdit = new QTextEdit(gridLayoutWidget);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setReadOnly(true);
 
-        gridLayout->addWidget(graphicsView, 1, 1, 1, 1);
+        gridLayout->addWidget(textEdit, 1, 1, 1, 1);
 
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(10, 10, 271, 171));
+        scrollArea->setGeometry(QRect(10, 10, 271, 271));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 269, 169));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 269, 269));
         verticalScrollBar = new QScrollBar(scrollAreaWidgetContents_2);
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(246, 0, 20, 171));
+        verticalScrollBar->setGeometry(QRect(246, 0, 20, 341));
         verticalScrollBar->setOrientation(Qt::Vertical);
         tableWidget = new QTableWidget(scrollAreaWidgetContents_2);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(0, 20, 241, 151));
+        tableWidget->setGeometry(QRect(0, 20, 251, 321));
         label = new QLabel(scrollAreaWidgetContents_2);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(0, 0, 251, 16));
         scrollArea->setWidget(scrollAreaWidgetContents_2);
-        plainTextEdit = new QPlainTextEdit(centralwidget);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(10, 190, 271, 221));
-        plainTextEdit->setReadOnly(true);
+        tableWidget->raise();
+        label->raise();
+        verticalScrollBar->raise();
         lineEdit = new QLineEdit(centralwidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(10, 420, 271, 21));
+        teleportButton = new QPushButton(centralwidget);
+        teleportButton->setObjectName(QString::fromUtf8("teleportButton"));
+        teleportButton->setGeometry(QRect(10, 360, 81, 51));
+        quitButton = new QPushButton(centralwidget);
+        quitButton->setObjectName(QString::fromUtf8("quitButton"));
+        quitButton->setGeometry(QRect(200, 360, 81, 51));
+        takeButton = new QPushButton(centralwidget);
+        takeButton->setObjectName(QString::fromUtf8("takeButton"));
+        takeButton->setGeometry(QRect(100, 360, 91, 51));
+        quitButton_2 = new QPushButton(centralwidget);
+        quitButton_2->setObjectName(QString::fromUtf8("quitButton_2"));
+        quitButton_2->setGeometry(QRect(200, 300, 81, 51));
+        infoButton = new QPushButton(centralwidget);
+        infoButton->setObjectName(QString::fromUtf8("infoButton"));
+        infoButton->setGeometry(QRect(10, 300, 81, 51));
+        takeButton_2 = new QPushButton(centralwidget);
+        takeButton_2->setObjectName(QString::fromUtf8("takeButton_2"));
+        takeButton_2->setGeometry(QRect(100, 300, 91, 51));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -134,6 +156,12 @@ public:
         northButton->setText(QCoreApplication::translate("MainWindow", "north", nullptr));
         southButton->setText(QCoreApplication::translate("MainWindow", "south", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Inventory", nullptr));
+        teleportButton->setText(QCoreApplication::translate("MainWindow", "Teleport", nullptr));
+        quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
+        takeButton->setText(QCoreApplication::translate("MainWindow", "Take", nullptr));
+        quitButton_2->setText(QCoreApplication::translate("MainWindow", "Map", nullptr));
+        infoButton->setText(QCoreApplication::translate("MainWindow", "Info", nullptr));
+        takeButton_2->setText(QCoreApplication::translate("MainWindow", "Map", nullptr));
     } // retranslateUi
 
 };

@@ -7,6 +7,7 @@ using namespace std;
 #include "Parser.h"
 #include <QApplication>
 #include <QTextStream>
+#include <QDebug>
 
 Parser* parser;
 vector<Room> rooms;
@@ -21,14 +22,13 @@ int main(int argc, char *argv[]) {
     w.show();
     return a.exec();
     window = &w;
-
-    window->getZork()->play();
     parser = new Parser();
 	return 0;
 }
 
 ZorkUL::ZorkUL() {
 	createRooms();
+    qDebug() << "ZorkUL constructor";
 }
 
 void ZorkUL::createRooms()  {
@@ -76,6 +76,7 @@ void ZorkUL::createRooms()  {
  *  Main play routine.  Loops until end of play.
  */
 void ZorkUL::play() {
+    qDebug() << "ZorkUL play";
 	printWelcome();
 
 	// Enter the main command loop.  Here we repeatedly read commands and
@@ -181,14 +182,17 @@ bool ZorkUL::processCommand(Command command) {
 
     else if (commandWord.compare("teleport") == 0)
     {
+        string s;
         currentRoom = &rooms.at((int) rand() % rooms.size());
         cout << currentRoom->longDescription() <<endl;
+
     }
 	return false;
 }
 /** COMMANDS **/
 void ZorkUL::printHelp() {
-	cout << "valid inputs are; " << endl;
+    window->updateTextBox("valid inputs are: ");
+    //cout << "valid inputs are; " << endl;
     parser->showCommands();
 
 }
@@ -240,7 +244,8 @@ string outputCommand(Command command)
 
 void ZorkUL::parseInput(const string &input)
 {
+    qDebug() << "parseinput called";
     command = parser->getCommand(input);
+    qDebug() << "getcommand";
     isParsed = true;
 }
-

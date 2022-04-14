@@ -53,7 +53,11 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QGraphicsView" name="graphicsView"/>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -63,7 +67,7 @@
       <x>10</x>
       <y>10</y>
       <width>271</width>
-      <height>171</height>
+      <height>271</height>
      </rect>
     </property>
     <property name="widgetResizable">
@@ -75,7 +79,7 @@
        <x>0</x>
        <y>0</y>
        <width>269</width>
-       <height>169</height>
+       <height>269</height>
       </rect>
      </property>
      <widget class="QScrollBar" name="verticalScrollBar">
@@ -84,7 +88,7 @@
         <x>246</x>
         <y>0</y>
         <width>20</width>
-        <height>171</height>
+        <height>341</height>
        </rect>
       </property>
       <property name="orientation">
@@ -96,8 +100,8 @@
        <rect>
         <x>0</x>
         <y>20</y>
-        <width>241</width>
-        <height>151</height>
+        <width>251</width>
+        <height>321</height>
        </rect>
       </property>
      </widget>
@@ -114,20 +118,10 @@
        <string>Inventory</string>
       </property>
      </widget>
+     <zorder>tableWidget</zorder>
+     <zorder>label</zorder>
+     <zorder>verticalScrollBar</zorder>
     </widget>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>190</y>
-      <width>271</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
@@ -137,6 +131,84 @@
       <width>271</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="teleportButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teleport</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quitButton">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>360</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="takeButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>360</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Take</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quitButton_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>300</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Map</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="infoButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Info</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="takeButton_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>300</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Map</string>
     </property>
    </widget>
   </widget>

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "ZorkUL.h"
+#include "Parser.h"
 #include <QMainWindow>
 #include <QTextStream>
 #include <sstream>
@@ -25,6 +26,7 @@ public:
     ZorkUL* zork;
     void updateTextBox(string text);
     ZorkUL* getZork();
+    Parser* parser;
 
 private slots:
     //void on_plainTextEdit_blockCountChanged(int newBlockCount);
@@ -32,8 +34,29 @@ private slots:
 
     void on_lineEdit_returnPressed();
 
+    void on_textEdit_textChanged();
+
+    void on_northButton_clicked();
+
+    void on_eastButton_clicked();
+
+    void on_southButton_clicked();
+
+    void on_teleportButton_clicked();
+
+    void on_takeButton_clicked();
+
+    void on_quitButton_clicked();
+
+    void on_infoButton_clicked();
+
+    void on_mapButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-
+    Command command;
+    bool finished;
+    void goText(string direction);
+    void commandText(string firstWord, string secondWord);
 };
 #endif // MAINWINDOW_H

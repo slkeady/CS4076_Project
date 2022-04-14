@@ -8,19 +8,21 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <QDebug>
 
 using namespace std;
 
 class ZorkUL {
+    friend class MainWindow;
 private:
     vector<Room> rooms;
     Parser *parser;
     Command* command;
     bool isParsed;
-	Room *currentRoom;
+    //Room *currentRoom;
 	void createRooms();
 	void printWelcome();
-    bool processCommand(Command command);
+    //bool processCommand(Command command);
 	void printHelp();
 	void goRoom(Command command);
     void createItems();
@@ -29,9 +31,11 @@ private:
 
 public:
 	ZorkUL();
-	void play();
+    void play();
     string go(string direction);
     void parseInput(const string &input);
+    Room *currentRoom;
+    bool processCommand(Command command);
 };
 
 #endif /*ZORKUL_H_*/
