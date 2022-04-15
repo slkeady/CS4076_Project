@@ -14,9 +14,11 @@ SOURCES += \
     CommandWords.cpp \
     Parser.cpp \
     Room.cpp \
+    WordleFile.cpp \
     ZorkUL.cpp \
     item.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    wordle.cpp
 
 HEADERS += \
     Character.h \
@@ -24,12 +26,15 @@ HEADERS += \
     CommandWords.h \
     Parser.h \
     Room.h \
+    WordleFile.h \
     ZorkUL.h \
     item.h \
-    mainwindow.h
+    mainwindow.h \
+    wordle.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    wordle.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -37,4 +42,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Zork.pro.user
+    Zork.pro.user \
+    wordlelist.txt

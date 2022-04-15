@@ -15,33 +15,24 @@ using namespace std;
 class ZorkUL {
     friend class MainWindow;
 private:
-    vector<Room> rooms;
     Parser *parser;
+    vector<Room> rooms;
     Command* command;
-    bool isParsed;
-    //Room *currentRoom;
-	void createRooms();
-	void printWelcome();
-    //bool processCommand(Command command);
-	void printHelp();
-	void goRoom(Command command);
+    void createRooms();
     void createItems();
     void displayItems();
     static string outputCommand(Command command);
 
 
 public:
-	ZorkUL();
-    void play();
+    ZorkUL();
     string go(string direction);
-    void parseInput(const string &input);
     Room *currentRoom;
-    bool processCommand(Command command);
+    vector<Item> inventory;
     string getInfo();
     string getSearch();
     string getMap();
     string addItemToInv(int location);
-    vector<Item> inventory;
     string getTeleport();
 };
 

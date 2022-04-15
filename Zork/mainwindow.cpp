@@ -5,6 +5,7 @@
 #include "Parser.h"
 #include "CommandWords.h"
 #include "Command.h"
+#include "wordle.h"
 #include <iostream>
 #include <QPixmap>
 #include <QMessageBox>
@@ -23,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     uiptr = ui;
     cmd = &command;
     ui->setupUi(this);
-    ui->textEdit->append("Welcome to Zork! Press buttons to get started.");
+    ui->textEdit->append("Welcome to Zork! The goal is to find all the letters for Wordle, press buttons to get started.");
     zork = new ZorkUL();
     parser = new Parser();
 }
@@ -33,24 +34,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*void MainWindow::parseInput(const string &input)
-{
-    ZorkUL* zork = ZorkUL::getZork();
-    Command *command = zork->getParser()->getCommand(input);
-}*/
 
 void MainWindow::updateTextBox(string text)
 {
     ui->textEdit->append(QString::fromStdString(text));
 }
-
-
-
-/*void MainWindow::on_plainTextEdit_blockCountChanged(int newBlockCount)
-{
-
-}
-*/
 
 void MainWindow::on_northButton_clicked()
 {
@@ -73,24 +61,6 @@ void MainWindow::on_westButton_clicked()
 }
 
 
-void MainWindow::on_lineEdit_returnPressed()
-{
-    //string text = ui->lineEdit->text().toStdString();
-    //zork->parseInput(text);
-    //ui->lineEdit->clear();
-}
-
-/*ZorkUL* getZork()
-{
-    return zork;
-}
-*/
-void MainWindow::on_textEdit_textChanged()
-{
-
-}
-
-
 void MainWindow::on_teleportButton_clicked()
 {
     ui->textEdit->append(QString::fromStdString(zork->getTeleport()));
@@ -99,7 +69,11 @@ void MainWindow::on_teleportButton_clicked()
 
 void MainWindow::on_takeButton_clicked()
 {
-    ui->inventory->append(QString::fromStdString(zork->addItemToInv(zork->currentRoom->numberOfItems() - 1)));
+    QString s = QString::fromStdString(zork->addItemToInv(zork->currentRoom->numberOfItems() - 1));
+    if (s != "")
+    {
+        ui->inventory->append(s);
+    }
 }
 
 
@@ -141,4 +115,16 @@ inline void MainWindow::goText(string direction)
         ui->textEdit->append("Game over, you won!");
     }
 }*/
+
+
+void MainWindow::on_wordleButton_clicked()
+{
+    if(zork->inventory.size() == 25)
+    {
+        Wordle wordle;
+        wordle.setModal(true);
+        wordle.exec();
+    }
+}
+
 

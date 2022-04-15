@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -34,7 +33,6 @@ public:
     QPushButton *northButton;
     QPushButton *southButton;
     QTextEdit *textEdit;
-    QLineEdit *lineEdit;
     QPushButton *teleportButton;
     QPushButton *quitButton;
     QPushButton *takeButton;
@@ -43,6 +41,8 @@ public:
     QPushButton *mapButton;
     QTextEdit *inventory;
     QLabel *label;
+    QPushButton *wordleButton;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -50,12 +50,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(805, 485);
+        MainWindow->resize(805, 570);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(290, 10, 491, 431));
+        gridLayoutWidget->setGeometry(QRect(290, 10, 491, 511));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -85,9 +85,6 @@ public:
 
         gridLayout->addWidget(textEdit, 1, 1, 1, 1);
 
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 420, 271, 21));
         teleportButton = new QPushButton(centralwidget);
         teleportButton->setObjectName(QString::fromUtf8("teleportButton"));
         teleportButton->setGeometry(QRect(10, 360, 81, 51));
@@ -112,6 +109,14 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 10, 271, 20));
+        wordleButton = new QPushButton(centralwidget);
+        wordleButton->setObjectName(QString::fromUtf8("wordleButton"));
+        wordleButton->setGeometry(QRect(100, 470, 91, 51));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(10, 420, 271, 41));
+        label_2->setAlignment(Qt::AlignCenter);
+        label_2->setWordWrap(true);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -140,6 +145,8 @@ public:
         infoButton->setText(QCoreApplication::translate("MainWindow", "Info", nullptr));
         mapButton->setText(QCoreApplication::translate("MainWindow", "Map", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Inventory", nullptr));
+        wordleButton->setText(QCoreApplication::translate("MainWindow", "Wordle", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Once all letter have been created, you can play Wordle!", nullptr));
     } // retranslateUi
 
 };

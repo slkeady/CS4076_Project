@@ -22,21 +22,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    //void parseInput(const string &input);
     ZorkUL* zork;
     void updateTextBox(string text);
-    ZorkUL* getZork();
     Parser* parser;
     Ui::MainWindow* uiptr;
     Command* cmd;
 
 private slots:
-    //void on_plainTextEdit_blockCountChanged(int newBlockCount);
     void on_westButton_clicked();
-
-    void on_lineEdit_returnPressed();
-
-    void on_textEdit_textChanged();
 
     void on_northButton_clicked();
 
@@ -55,6 +48,8 @@ private slots:
     void on_mapButton_clicked();
 
     void on_searchButton_clicked();
+
+    void on_wordleButton_clicked();
 
 private:
     Ui::MainWindow *ui;
