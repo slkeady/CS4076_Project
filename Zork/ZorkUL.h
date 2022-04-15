@@ -29,6 +29,7 @@ private:
     void displayItems();
     static string outputCommand(Command command);
 
+
 public:
 	ZorkUL();
     void play();
@@ -36,6 +37,12 @@ public:
     void parseInput(const string &input);
     Room *currentRoom;
     bool processCommand(Command command);
+    string getInfo();
+    string getSearch();
+    string getMap();
+    string addItemToInv(int location);
+    vector<Item> inventory;
+    string getTeleport();
 };
 
 #endif /*ZORKUL_H_*/

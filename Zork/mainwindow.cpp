@@ -12,14 +12,18 @@
 #include <QString>
 
 bool finished = false;
+Ui::MainWindow* uiptr;
+Command* cmd;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , command(Command("", ""))
 {
+    uiptr = ui;
+    cmd = &command;
     ui->setupUi(this);
-    ui->lineEdit->setPlaceholderText("Type your commands here");
+    ui->textEdit->append("Welcome to Zork! Press buttons to get started.");
     zork = new ZorkUL();
     parser = new Parser();
 }
@@ -89,41 +93,52 @@ void MainWindow::on_textEdit_textChanged()
 
 void MainWindow::on_teleportButton_clicked()
 {
-    commandText("teleport", "");
+    ui->textEdit->append(QString::fromStdString(zork->getTeleport()));
 }
 
 
 void MainWindow::on_takeButton_clicked()
 {
-
+    ui->inventory->append(QString::fromStdString(zork->addItemToInv(zork->currentRoom->numberOfItems() - 1)));
 }
 
 
 void MainWindow::on_quitButton_clicked()
 {
-    commandText("quit", "");
+    qApp->exit();
 }
 
 void MainWindow::on_infoButton_clicked()
 {
-    commandText("info", "");
+    ui->textEdit->append(QString::fromStdString(zork->getInfo()));
 }
+
+void MainWindow::on_searchButton_clicked()
+{
+    ui->textEdit->append(QString::fromStdString(zork->getSearch()));
+}
+
+
 
 
 void MainWindow::on_mapButton_clicked()
 {
-    commandText("map", "");
+    ui->textEdit->append(QString::fromStdString(zork->getMap()));
 }
 
 inline void MainWindow::goText(string direction)
 {
     zork->go(direction);
     ui->textEdit->append(QString::fromStdString(zork->currentRoom->longDescription()));
-    ui->textEdit->append("\n");
 }
 
-inline void MainWindow::commandText(string firstWord, string secondWord)
+/*inline void MainWindow::commandText(string input)
 {
-    command = Command(firstWord, secondWord);
-    zork->processCommand(command);
-}
+    cmd = parser->getCommand(input);
+    finished = zork->processCommand(command);
+    if (finished == true)
+    {
+        ui->textEdit->append("Game over, you won!");
+    }
+}*/
+

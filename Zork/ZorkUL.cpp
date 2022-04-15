@@ -5,6 +5,7 @@ using namespace std;
 #include "ZorkUL.h"
 #include "mainwindow.h"
 #include "Parser.h"
+#include "item.h"
 #include <QApplication>
 #include <QTextStream>
 #include <QDebug>
@@ -14,6 +15,7 @@ vector<Room> rooms;
 Command* command;
 bool isParsed = false;
 MainWindow* window;
+vector<Item> inventory;
 
 int main(int argc, char *argv[]) {
 
@@ -79,22 +81,19 @@ void ZorkUL::play() {
     qDebug() << "ZorkUL play";
 	printWelcome();
 
-	// Enter the main command loop.  Here we repeatedly read commands and
-	// execute them until the ZorkUL game is over.
+    // Enter the main command loop.  Here we repeatedly read commands and
+        // execute them until the ZorkUL game is over.
 
-	bool finished = false;
-    string input = "";
-	while (!finished) {
-        if(isParsed)
-        {
-            // Pass dereferenced command and check for end of game.
-            finished = processCommand(*command);
-            isParsed = false;
-        }
+    bool finished = false;
+    while (!finished) {
+        // Create pointer to command and give it a command.
+        //Command* command = parser->getCommand();
+        // Pass dereferenced command and check for end of game.
+        finished = processCommand(*command);
         // Free the memory allocated by "parser.getCommand()"
         //   with ("return new Command(...)")
-        command = nullptr;
-	}
+        delete command;
+    }
     window->updateTextBox("\nend\n");
     //cout << endl;
     //cout << "end" << endl;
@@ -184,16 +183,17 @@ bool ZorkUL::processCommand(Command command) {
     {
         string s;
         currentRoom = &rooms.at((int) rand() % rooms.size());
-        cout << currentRoom->longDescription() <<endl;
+        window->updateTextBox(currentRoom->longDescription());
+        //cout << currentRoom->longDescription() <<endl;
 
     }
 	return false;
 }
 /** COMMANDS **/
 void ZorkUL::printHelp() {
-    window->updateTextBox("valid inputs are: ");
+
     //cout << "valid inputs are; " << endl;
-    parser->showCommands();
+    //parser->showCommands();
 
 }
 
@@ -222,7 +222,7 @@ string ZorkUL::go(string direction) {
 	//Move to the next room
 	Room* nextRoom = currentRoom->nextRoom(direction);
 	if (nextRoom == NULL)
-		return("direction null");
+        return "direction null";
 	else
 	{
 		currentRoom = nextRoom;
@@ -248,4 +248,55 @@ void ZorkUL::parseInput(const string &input)
     command = parser->getCommand(input);
     qDebug() << "getcommand";
     isParsed = true;
+}
+
+string ZorkUL::getInfo()
+{
+    return currentRoom->longDescription();
+}
+
+string ZorkUL::getSearch()
+{
+    return currentRoom->displayItem();
+}
+
+string ZorkUL::getMap()
+{
+    vector<string> map;
+    string smap;
+
+    map.push_back("[h] --- [f] --- [g]\n");
+    map.push_back("         |         \n");
+    map.push_back("         |         \n");
+    map.push_back("[c] --- [a] --- [b]\n");
+    map.push_back("         |         \n");
+    map.push_back("         |         \n");
+    map.push_back("[i] --- [d] --- [e]\n");
+
+    smap = map[0] + map[1] + map[2] + map[3] + map[4] + map[5] + map[6];
+
+    return smap;
+}
+
+string ZorkUL::addItemToInv(int location)
+{
+    if (currentRoom->numberOfItems() == 0)
+    {
+        return "";
+    }
+    else
+    {
+        string sitem = currentRoom->getItem(location).getShortDescription();
+        Item item = currentRoom->getItem(location);
+        inventory.push_back(item);
+        currentRoom->removeItemFromRoom();
+        return sitem;
+    }
+
+}
+
+string ZorkUL::getTeleport()
+{
+    currentRoom = &rooms.at((int) rand() % rooms.size());
+    return currentRoom->longDescription();
 }

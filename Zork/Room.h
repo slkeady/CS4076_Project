@@ -27,7 +27,9 @@ public:
     void addItem(Item *inItem);
     string displayItem();
     int isItemInRoom(string inString);
-    void removeItemFromRoom(int location);
+    void removeItemFromRoom();
+    Item getItem(int location);
+    string itemToString(int location);
 };
 
 #endif

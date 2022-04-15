@@ -1,5 +1,6 @@
 #include "Room.h"
 #include "Command.h"
+#include <vector>
 
 
 Room::Room(string description) {
@@ -88,3 +89,17 @@ int Room::isItemInRoom(string inString)
     return -1;
 }
 
+void Room::removeItemFromRoom()
+{
+    itemsInRoom.pop_back();
+}
+
+Item Room::getItem(int location)
+{
+    return itemsInRoom[location];
+}
+
+string Room::itemToString(int location)
+{
+    return itemsInRoom[location].getShortDescription();
+}

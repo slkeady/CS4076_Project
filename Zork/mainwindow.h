@@ -27,6 +27,8 @@ public:
     void updateTextBox(string text);
     ZorkUL* getZork();
     Parser* parser;
+    Ui::MainWindow* uiptr;
+    Command* cmd;
 
 private slots:
     //void on_plainTextEdit_blockCountChanged(int newBlockCount);
@@ -52,11 +54,13 @@ private slots:
 
     void on_mapButton_clicked();
 
+    void on_searchButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Command command;
     bool finished;
     void goText(string direction);
-    void commandText(string firstWord, string secondWord);
+    //void commandText(string input);
 };
 #endif // MAINWINDOW_H

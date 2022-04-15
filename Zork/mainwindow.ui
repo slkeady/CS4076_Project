@@ -61,68 +61,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>271</width>
-      <height>271</height>
-     </rect>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>269</width>
-       <height>269</height>
-      </rect>
-     </property>
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="geometry">
-       <rect>
-        <x>246</x>
-        <y>0</y>
-        <width>20</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>251</width>
-        <height>321</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>251</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Inventory</string>
-      </property>
-     </widget>
-     <zorder>tableWidget</zorder>
-     <zorder>label</zorder>
-     <zorder>verticalScrollBar</zorder>
-    </widget>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
@@ -172,7 +110,7 @@
      <string>Take</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="quitButton_2">
+   <widget class="QPushButton" name="searchButton">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -182,7 +120,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Map</string>
+     <string>Search</string>
     </property>
    </widget>
    <widget class="QPushButton" name="infoButton">
@@ -198,7 +136,7 @@
      <string>Info</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="takeButton_2">
+   <widget class="QPushButton" name="mapButton">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -209,6 +147,29 @@
     </property>
     <property name="text">
      <string>Map</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="inventory">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>271</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Inventory</string>
     </property>
    </widget>
   </widget>
