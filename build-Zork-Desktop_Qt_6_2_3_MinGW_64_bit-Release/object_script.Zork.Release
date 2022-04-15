@@ -1,0 +1,12 @@
+release/Character.o
+release/Command.o
+release/CommandWords.o
+release/Parser.o
+release/Room.o
+release/WordleFile.o
+release/ZorkUL.o
+release/item.o
+release/mainwindow.o
+release/wordle.o
+release/moc_mainwindow.o
+release/moc_wordle.o
